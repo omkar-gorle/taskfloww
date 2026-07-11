@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><div class="container py-5"><div class="row align-items-center min-vh-75">
+<div class="col-lg-6"><span class="eyebrow">SMART PRODUCTIVITY, SIMPLIFIED</span><h1 class="display-3 fw-bold mt-3">Plan smarter.<br>Focus better.<br><span class="text-primary">Achieve more.</span></h1>
+<p class="lead text-body-secondary my-4">TaskFlow turns your daily work into clear priorities, measurable progress, and meaningful momentum.</p>
+<a class="btn btn-primary btn-lg px-4" href="{{url_for('auth.register')}}">Start for free <i class="bi bi-arrow-right"></i></a></div>
+<div class="col-lg-6"><div class="hero-visual"><div class="floating-card fc1"><i class="bi bi-check2-circle"></i> 84% completion</div><div class="mock-dashboard"><div class="mock-line w-50"></div><div class="row g-3 mt-2"><div class="col-6"><div class="mock-stat">24<br><small>Total tasks</small></div></div><div class="col-6"><div class="mock-stat">18<br><small>Completed</small></div></div></div><div class="mock-chart mt-3"></div></div></div></div>
+</div></div></section>
+<section class="container py-5"><div class="text-center mb-5"><span class="eyebrow">EVERYTHING IN ONE PLACE</span><h2 class="fw-bold mt-2">Built for focused work</h2></div>
+<div class="row g-4">{% for icon,title,text in [('check2-square','Smart task management','Priorities, due dates, categories and status tracking.'),('graph-up-arrow','Real analytics','Understand completion trends and productivity patterns.'),('shield-check','Private by design','Secure accounts and strict user-level task isolation.')] %}<div class="col-md-4"><div class="feature-card h-100"><i class="bi bi-{{icon}} feature-icon"></i><h4>{{title}}</h4><p class="text-body-secondary">{{text}}</p></div></div>{% endfor %}</div></section>
+<footer class="border-top mt-5"><div class="container py-4 text-center text-body-secondary">TaskFlow · Python Unit Testing Pipeline</div></footer>
+{% endblock %}

@@ -1,0 +1,1 @@
+(()=>{const root=document.documentElement,key="taskflow-theme",saved=localStorage.getItem(key);if(saved)root.setAttribute("data-bs-theme",saved);document.getElementById("themeToggle")?.addEventListener("click",()=>{const next=root.getAttribute("data-bs-theme")==="dark"?"light":"dark";root.setAttribute("data-bs-theme",next);localStorage.setItem(key,next)})})();

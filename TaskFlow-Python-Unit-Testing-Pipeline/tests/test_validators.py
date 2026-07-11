@@ -1,0 +1,21 @@
+import pytest
+from datetime import date
+from taskflow.utils.validators import *
+@pytest.mark.parametrize("email",["a@b.com","name.user@example.co.in"])
+def test_valid_email(email): assert validate_email(email)
+@pytest.mark.parametrize("email",["","abc","a@","@x.com","a b@x.com"])
+def test_invalid_email(email): assert not validate_email(email)
+def test_valid_password(): assert validate_password("12345678")
+def test_short_password(): assert not validate_password("1234567")
+def test_empty_title(): assert not validate_task_title(" ")
+def test_long_title(): assert not validate_task_title("x"*151)
+def test_valid_title(): assert validate_task_title("Ship project")
+@pytest.mark.parametrize("x",["Low","Medium","High"])
+def test_valid_priority(x): assert validate_priority(x)
+def test_invalid_priority(): assert not validate_priority("Urgent")
+@pytest.mark.parametrize("x",["Pending","Completed"])
+def test_valid_status(x): assert validate_status(x)
+def test_invalid_status(): assert not validate_status("Done")
+def test_valid_due_date(): assert validate_due_date("2030-01-01")
+def test_date_object_valid(): assert validate_due_date(date.today())
+def test_invalid_due_date(): assert not validate_due_date("01/01/2030")
